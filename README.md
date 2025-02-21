@@ -1,0 +1,2 @@
+# School Management System
+ A School Management System (SMS) is a software application designed to manage various aspects of school operations, such as student records, attendance, grades, timetable scheduling, and administrative functions. It streamlines and automates many tasks, making it easier for both school staff and students to interact and manage day-to-day activities. Here's a breakdown of the typical features and functionalities in a School Management System:
