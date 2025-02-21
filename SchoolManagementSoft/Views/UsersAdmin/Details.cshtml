@@ -1,0 +1,55 @@
+﻿@model SchoolManagementSoft.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "User Details";
+}
+<hr />
+<div class="col-sm-6 offset-3" style="background-color:#ebebeb;color:#000; padding:15px;">
+    <div>
+        <h4>@ViewBag.Title</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FullName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            
+        </dl>
+    </div>
+    <h4>List of roles for this user</h4>
+    @if (ViewBag.RoleNames.Count == 0)
+    {
+        <hr />
+        <p>No roles found for this user.</p>
+    }
+
+    <table class="table">
+
+        @foreach (var item in ViewBag.RoleNames)
+        {
+            <tr>
+                <td>
+                    @item
+                </td>
+            </tr>
+        }
+    </table>
+
+    <p>
+        <a class="btn btn-sm btn-outline-warning" href="@Url.Action("Edit","UsersAdmin",new { id=Model.Id})">
+            <i class="fa fa-edit"></i> Edit
+        </a>
+        <a class="btn btn-sm btn-outline-info" href="@Url.Action("Index","UsersAdmin")">
+            <i class="fa fa-list-ul"></i> Back To List
+        </a>
+    </p>
+
+</div>

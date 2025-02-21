@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SchoolMDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CustPicture">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentUniqueeID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FileName" Type="varchar(max)" Nullable="false" />
+    <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StdAdmission">
+    <Key>
+      <PropertyRef Name="Aid" />
+    </Key>
+    <Property Name="Aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ADate" Type="datetime" />
+    <Property Name="StudentUniqueeID" Type="varchar" MaxLength="50" />
+    <Property Name="ClassName" Type="varchar" MaxLength="50" />
+    <Property Name="StdSectionName" Type="varchar" MaxLength="50" />
+    <Property Name="GroupName" Type="varchar" MaxLength="50" />
+    <Property Name="AFee" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="MFee" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Note" Type="varchar" MaxLength="500" />
+    <Property Name="SysDate" Type="datetime" />
+    <Property Name="CreateBy" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="StdClass">
+    <Key>
+      <PropertyRef Name="ClassID" />
+    </Key>
+    <Property Name="ClassID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassName" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StdGroup">
+    <Key>
+      <PropertyRef Name="Gid" />
+    </Key>
+    <Property Name="Gid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupName" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StdPicture">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentUniqueeID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="FileName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StdProfile">
+    <Key>
+      <PropertyRef Name="StudentUniqueeID" />
+    </Key>
+    <Property Name="StdID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentUniqueeID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StudentName" Type="varchar" MaxLength="150" />
+    <Property Name="ClassName" Type="varchar" MaxLength="50" />
+    <Property Name="FName" Type="varchar" MaxLength="50" />
+    <Property Name="MName" Type="varchar" MaxLength="50" />
+    <Property Name="ContachNumber" Type="varchar" MaxLength="50" />
+    <Property Name="EmergencyContact" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="250" />
+    <Property Name="SchoolName" Type="varchar" MaxLength="250" />
+    <Property Name="ClassRoll" Type="varchar" MaxLength="50" />
+    <Property Name="Fee" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ReferenceName" Type="varchar" MaxLength="150" />
+    <Property Name="MeritNumber" Type="varchar" MaxLength="50" />
+    <Property Name="AdmissionDate" Type="datetime" />
+    <Property Name="SysDate" Type="datetime" />
+    <Property Name="CreateBy" Type="varchar" MaxLength="100" />
+    <Property Name="Updatedate" Type="datetime" />
+    <Property Name="SlNo" Type="int" Nullable="false" />
+    <Property Name="BranchCode" Type="varchar" MaxLength="5" />
+    <Property Name="StdSectionName" Type="varchar" MaxLength="50" />
+    <Property Name="BDate" Type="datetime" />
+    <Property Name="GroupName" Type="varchar" MaxLength="50" />
+    <Property Name="FatherOccupation" Type="varchar" MaxLength="50" />
+    <Property Name="MotherOccupation" Type="varchar" MaxLength="50" />
+    <Property Name="FatherNID" Type="varchar" MaxLength="50" />
+    <Property Name="MotherNID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StdSection">
+    <Key>
+      <PropertyRef Name="SectionID" />
+    </Key>
+    <Property Name="SectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SectionName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StdTType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FType" Type="varchar" MaxLength="200" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StdTution">
+    <Key>
+      <PropertyRef Name="SlNo" />
+    </Key>
+    <Property Name="SlNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentUniqueeID" Type="varchar" MaxLength="50" />
+    <Property Name="PDate" Type="datetime" />
+    <Property Name="Pmonth" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ReceivedBy" Type="varchar" MaxLength="200" />
+    <Property Name="SysTime" Type="datetime" />
+    <Property Name="FType" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="TeacherEducation">
+    <Key>
+      <PropertyRef Name="Eid" />
+    </Key>
+    <Property Name="Eid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EducationName" Type="varchar" MaxLength="150" />
+    <Property Name="Description" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TeacherPicture">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="FileName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeacherPro">
+    <Key>
+      <PropertyRef Name="TeacherID" />
+    </Key>
+    <Property Name="Tid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+    <Property Name="Designation" Type="varchar" MaxLength="150" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="ContactNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Education" Type="varchar" MaxLength="250" />
+    <Property Name="Nationality" Type="varchar" MaxLength="50" />
+    <Property Name="BloodGroup" Type="varchar" MaxLength="50" />
+    <Property Name="PersentAddress" Type="varchar" MaxLength="250" />
+    <Property Name="PermanentAddress" Type="varchar" MaxLength="250" />
+    <Property Name="JoiningDate" Type="datetime" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="SysTime" Type="datetime" />
+    <Property Name="CreateBy" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SchoolMDB.dbo.VTutuionCollectionList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VTutuionCollectionList">
+    <Key>
+      <PropertyRef Name="StudentUniqueeID" />
+      <PropertyRef Name="SlNo" />
+    </Key>
+    <Property Name="StudentUniqueeID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StudentName" Type="varchar" MaxLength="150" />
+    <Property Name="ClassName" Type="varchar" MaxLength="50" />
+    <Property Name="Fee" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SlNo" Type="int" Nullable="false" />
+    <Property Name="PDate" Type="datetime" />
+    <Property Name="ReceivedBy" Type="varchar" MaxLength="200" />
+    <Property Name="FType" Type="varchar" MaxLength="200" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="SchoolMDBModelStoreContainer">
+    <EntitySet Name="CustPicture" EntityType="Self.CustPicture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StdAdmission" EntityType="Self.StdAdmission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StdClass" EntityType="Self.StdClass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StdGroup" EntityType="Self.StdGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StdPicture" EntityType="Self.StdPicture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StdProfile" EntityType="Self.StdProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StdSection" EntityType="Self.StdSection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StdTType" EntityType="Self.StdTType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StdTution" EntityType="Self.StdTution" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeacherEducation" EntityType="Self.TeacherEducation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeacherPicture" EntityType="Self.TeacherPicture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeacherPro" EntityType="Self.TeacherPro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VTutuionCollectionList" EntityType="Self.VTutuionCollectionList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VTutuionCollectionList].[StudentUniqueeID] AS [StudentUniqueeID], 
+    [VTutuionCollectionList].[StudentName] AS [StudentName], 
+    [VTutuionCollectionList].[ClassName] AS [ClassName], 
+    [VTutuionCollectionList].[Fee] AS [Fee], 
+    [VTutuionCollectionList].[SlNo] AS [SlNo], 
+    [VTutuionCollectionList].[PDate] AS [PDate], 
+    [VTutuionCollectionList].[ReceivedBy] AS [ReceivedBy], 
+    [VTutuionCollectionList].[FType] AS [FType], 
+    [VTutuionCollectionList].[Amount] AS [Amount]
+    FROM [dbo].[VTutuionCollectionList] AS [VTutuionCollectionList]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

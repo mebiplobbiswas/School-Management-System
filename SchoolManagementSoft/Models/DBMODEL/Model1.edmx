@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SchoolMDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CustPicture">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentUniqueeID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileName" Type="varchar(max)" Nullable="false" />
+          <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StdAdmission">
+          <Key>
+            <PropertyRef Name="Aid" />
+          </Key>
+          <Property Name="Aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADate" Type="datetime" />
+          <Property Name="StudentUniqueeID" Type="varchar" MaxLength="50" />
+          <Property Name="ClassName" Type="varchar" MaxLength="50" />
+          <Property Name="StdSectionName" Type="varchar" MaxLength="50" />
+          <Property Name="GroupName" Type="varchar" MaxLength="50" />
+          <Property Name="AFee" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MFee" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Note" Type="varchar" MaxLength="500" />
+          <Property Name="SysDate" Type="datetime" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="StdClass">
+          <Key>
+            <PropertyRef Name="ClassID" />
+          </Key>
+          <Property Name="ClassID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StdGroup">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="Gid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StdPicture">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentUniqueeID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StdProfile">
+          <Key>
+            <PropertyRef Name="StudentUniqueeID" />
+          </Key>
+          <Property Name="StdID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentUniqueeID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" MaxLength="150" />
+          <Property Name="ClassName" Type="varchar" MaxLength="50" />
+          <Property Name="FName" Type="varchar" MaxLength="50" />
+          <Property Name="MName" Type="varchar" MaxLength="50" />
+          <Property Name="ContachNumber" Type="varchar" MaxLength="50" />
+          <Property Name="EmergencyContact" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="250" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="250" />
+          <Property Name="ClassRoll" Type="varchar" MaxLength="50" />
+          <Property Name="Fee" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ReferenceName" Type="varchar" MaxLength="150" />
+          <Property Name="MeritNumber" Type="varchar" MaxLength="50" />
+          <Property Name="AdmissionDate" Type="datetime" />
+          <Property Name="SysDate" Type="datetime" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="100" />
+          <Property Name="Updatedate" Type="datetime" />
+          <Property Name="SlNo" Type="int" Nullable="false" />
+          <Property Name="BranchCode" Type="varchar" MaxLength="5" />
+          <Property Name="StdSectionName" Type="varchar" MaxLength="50" />
+          <Property Name="BDate" Type="datetime" />
+          <Property Name="GroupName" Type="varchar" MaxLength="50" />
+          <Property Name="FatherOccupation" Type="varchar" MaxLength="50" />
+          <Property Name="MotherOccupation" Type="varchar" MaxLength="50" />
+          <Property Name="FatherNID" Type="varchar" MaxLength="50" />
+          <Property Name="MotherNID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StdSection">
+          <Key>
+            <PropertyRef Name="SectionID" />
+          </Key>
+          <Property Name="SectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SectionName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StdTType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FType" Type="varchar" MaxLength="200" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StdTution">
+          <Key>
+            <PropertyRef Name="SlNo" />
+          </Key>
+          <Property Name="SlNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentUniqueeID" Type="varchar" MaxLength="50" />
+          <Property Name="PDate" Type="datetime" />
+          <Property Name="Pmonth" Type="varchar" MaxLength="50" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ReceivedBy" Type="varchar" MaxLength="200" />
+          <Property Name="SysTime" Type="datetime" />
+          <Property Name="FType" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="TeacherEducation">
+          <Key>
+            <PropertyRef Name="Eid" />
+          </Key>
+          <Property Name="Eid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EducationName" Type="varchar" MaxLength="150" />
+          <Property Name="Description" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="TeacherPicture">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeacherID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeacherPro">
+          <Key>
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Name="Tid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeacherID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" />
+          <Property Name="Designation" Type="varchar" MaxLength="150" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="ContactNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Education" Type="varchar" MaxLength="250" />
+          <Property Name="Nationality" Type="varchar" MaxLength="50" />
+          <Property Name="BloodGroup" Type="varchar" MaxLength="50" />
+          <Property Name="PersentAddress" Type="varchar" MaxLength="250" />
+          <Property Name="PermanentAddress" Type="varchar" MaxLength="250" />
+          <Property Name="JoiningDate" Type="datetime" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="SysTime" Type="datetime" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SchoolMDB.dbo.VTutuionCollectionList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VTutuionCollectionList">
+          <Key>
+            <PropertyRef Name="StudentUniqueeID" />
+            <PropertyRef Name="SlNo" />
+          </Key>
+          <Property Name="StudentUniqueeID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" MaxLength="150" />
+          <Property Name="ClassName" Type="varchar" MaxLength="50" />
+          <Property Name="Fee" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="SlNo" Type="int" Nullable="false" />
+          <Property Name="PDate" Type="datetime" />
+          <Property Name="ReceivedBy" Type="varchar" MaxLength="200" />
+          <Property Name="FType" Type="varchar" MaxLength="200" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="SchoolMDBModelStoreContainer">
+          <EntitySet Name="CustPicture" EntityType="Self.CustPicture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StdAdmission" EntityType="Self.StdAdmission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StdClass" EntityType="Self.StdClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StdGroup" EntityType="Self.StdGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StdPicture" EntityType="Self.StdPicture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StdProfile" EntityType="Self.StdProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StdSection" EntityType="Self.StdSection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StdTType" EntityType="Self.StdTType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StdTution" EntityType="Self.StdTution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeacherEducation" EntityType="Self.TeacherEducation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeacherPicture" EntityType="Self.TeacherPicture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeacherPro" EntityType="Self.TeacherPro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VTutuionCollectionList" EntityType="Self.VTutuionCollectionList" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VTutuionCollectionList].[StudentUniqueeID] AS [StudentUniqueeID], 
+    [VTutuionCollectionList].[StudentName] AS [StudentName], 
+    [VTutuionCollectionList].[ClassName] AS [ClassName], 
+    [VTutuionCollectionList].[Fee] AS [Fee], 
+    [VTutuionCollectionList].[SlNo] AS [SlNo], 
+    [VTutuionCollectionList].[PDate] AS [PDate], 
+    [VTutuionCollectionList].[ReceivedBy] AS [ReceivedBy], 
+    [VTutuionCollectionList].[FType] AS [FType], 
+    [VTutuionCollectionList].[Amount] AS [Amount]
+    FROM [dbo].[VTutuionCollectionList] AS [VTutuionCollectionList]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SchoolMDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="StdClass">
+          <Key>
+            <PropertyRef Name="ClassID" />
+          </Key>
+          <Property Name="ClassID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StdSection">
+          <Key>
+            <PropertyRef Name="SectionID" />
+          </Key>
+          <Property Name="SectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="SchoolMDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StdClasses" EntityType="Self.StdClass" />
+          <EntitySet Name="StdSections" EntityType="Self.StdSection" />
+          <EntitySet Name="StdPictures" EntityType="SchoolMDBModel.StdPicture" />
+          <EntitySet Name="StdGroups" EntityType="SchoolMDBModel.StdGroup" />
+          <EntitySet Name="StdProfiles" EntityType="SchoolMDBModel.StdProfile" />
+          <EntitySet Name="CustPictures" EntityType="SchoolMDBModel.CustPicture" />
+          <EntitySet Name="StdAdmissions" EntityType="SchoolMDBModel.StdAdmission" />
+          <EntitySet Name="StdTutions" EntityType="SchoolMDBModel.StdTution" />
+          <EntitySet Name="StdTTypes" EntityType="SchoolMDBModel.StdTType" />
+          <EntitySet Name="VTutuionCollectionLists" EntityType="SchoolMDBModel.VTutuionCollectionList" />
+          <EntitySet Name="TeacherEducations" EntityType="SchoolMDBModel.TeacherEducation" />
+          <EntitySet Name="TeacherPictures" EntityType="SchoolMDBModel.TeacherPicture" />
+          <EntitySet Name="TeacherProes" EntityType="SchoolMDBModel.TeacherPro" />
+        </EntityContainer>
+        <EntityType Name="StdPicture">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentUniqueeID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Picture" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="StdGroup">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="Gid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StdProfile">
+          <Key>
+            <PropertyRef Name="StudentUniqueeID" />
+          </Key>
+          <Property Name="StdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentUniqueeID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StudentName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContachNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmergencyContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ClassRoll" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fee" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ReferenceName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MeritNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdmissionDate" Type="DateTime" Precision="3" />
+          <Property Name="SysDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Updatedate" Type="DateTime" Precision="3" />
+          <Property Name="SlNo" Type="Int32" Nullable="false" />
+          <Property Name="BranchCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="StdSectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BDate" Type="DateTime" Precision="3" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FatherOccupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MotherOccupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FatherNID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MotherNID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CustPicture">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentUniqueeID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Picture" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="StdAdmission">
+          <Key>
+            <PropertyRef Name="Aid" />
+          </Key>
+          <Property Name="Aid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADate" Type="DateTime" Precision="3" />
+          <Property Name="StudentUniqueeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StdSectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AFee" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MFee" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SysDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StdTution">
+          <Key>
+            <PropertyRef Name="SlNo" />
+          </Key>
+          <Property Name="SlNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentUniqueeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PDate" Type="DateTime" Precision="3" />
+          <Property Name="Pmonth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ReceivedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SysTime" Type="DateTime" Precision="3" />
+          <Property Name="FType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StdTType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VTutuionCollectionList">
+          <Key>
+            <PropertyRef Name="StudentUniqueeID" />
+            <PropertyRef Name="SlNo" />
+          </Key>
+          <Property Name="StudentUniqueeID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StudentName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fee" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="SlNo" Type="Int32" Nullable="false" />
+          <Property Name="PDate" Type="DateTime" Precision="3" />
+          <Property Name="ReceivedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="TeacherEducation">
+          <Key>
+            <PropertyRef Name="Eid" />
+          </Key>
+          <Property Name="Eid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EducationName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TeacherPicture">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeacherID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Picture" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TeacherPro">
+          <Key>
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Name="Tid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeacherID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Education" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PersentAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PermanentAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SysTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SchoolMDBModelStoreContainer" CdmEntityContainer="SchoolMDBEntities">
+          <EntitySetMapping Name="StdClasses">
+            <EntityTypeMapping TypeName="SchoolMDBModel.StdClass">
+              <MappingFragment StoreEntitySet="StdClass">
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StdSections">
+            <EntityTypeMapping TypeName="SchoolMDBModel.StdSection">
+              <MappingFragment StoreEntitySet="StdSection">
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StdPictures">
+            <EntityTypeMapping TypeName="SchoolMDBModel.StdPicture">
+              <MappingFragment StoreEntitySet="StdPicture">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="StudentUniqueeID" ColumnName="StudentUniqueeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StdGroups">
+            <EntityTypeMapping TypeName="SchoolMDBModel.StdGroup">
+              <MappingFragment StoreEntitySet="StdGroup">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StdProfiles">
+            <EntityTypeMapping TypeName="SchoolMDBModel.StdProfile">
+              <MappingFragment StoreEntitySet="StdProfile">
+                <ScalarProperty Name="MotherNID" ColumnName="MotherNID" />
+                <ScalarProperty Name="FatherNID" ColumnName="FatherNID" />
+                <ScalarProperty Name="MotherOccupation" ColumnName="MotherOccupation" />
+                <ScalarProperty Name="FatherOccupation" ColumnName="FatherOccupation" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="BDate" ColumnName="BDate" />
+                <ScalarProperty Name="StdSectionName" ColumnName="StdSectionName" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+                <ScalarProperty Name="Updatedate" ColumnName="Updatedate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="SysDate" ColumnName="SysDate" />
+                <ScalarProperty Name="AdmissionDate" ColumnName="AdmissionDate" />
+                <ScalarProperty Name="MeritNumber" ColumnName="MeritNumber" />
+                <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="ClassRoll" ColumnName="ClassRoll" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="EmergencyContact" ColumnName="EmergencyContact" />
+                <ScalarProperty Name="ContachNumber" ColumnName="ContachNumber" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentUniqueeID" ColumnName="StudentUniqueeID" />
+                <ScalarProperty Name="StdID" ColumnName="StdID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustPictures">
+            <EntityTypeMapping TypeName="SchoolMDBModel.CustPicture">
+              <MappingFragment StoreEntitySet="CustPicture">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="StudentUniqueeID" ColumnName="StudentUniqueeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StdAdmissions">
+            <EntityTypeMapping TypeName="SchoolMDBModel.StdAdmission">
+              <MappingFragment StoreEntitySet="StdAdmission">
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="SysDate" ColumnName="SysDate" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="MFee" ColumnName="MFee" />
+                <ScalarProperty Name="AFee" ColumnName="AFee" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="StdSectionName" ColumnName="StdSectionName" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="StudentUniqueeID" ColumnName="StudentUniqueeID" />
+                <ScalarProperty Name="ADate" ColumnName="ADate" />
+                <ScalarProperty Name="Aid" ColumnName="Aid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StdTutions">
+            <EntityTypeMapping TypeName="SchoolMDBModel.StdTution">
+              <MappingFragment StoreEntitySet="StdTution">
+                <ScalarProperty Name="FType" ColumnName="FType" />
+                <ScalarProperty Name="SysTime" ColumnName="SysTime" />
+                <ScalarProperty Name="ReceivedBy" ColumnName="ReceivedBy" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Pmonth" ColumnName="Pmonth" />
+                <ScalarProperty Name="PDate" ColumnName="PDate" />
+                <ScalarProperty Name="StudentUniqueeID" ColumnName="StudentUniqueeID" />
+                <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StdTTypes">
+            <EntityTypeMapping TypeName="SchoolMDBModel.StdTType">
+              <MappingFragment StoreEntitySet="StdTType">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FType" ColumnName="FType" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VTutuionCollectionLists">
+            <EntityTypeMapping TypeName="SchoolMDBModel.VTutuionCollectionList">
+              <MappingFragment StoreEntitySet="VTutuionCollectionList">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="FType" ColumnName="FType" />
+                <ScalarProperty Name="ReceivedBy" ColumnName="ReceivedBy" />
+                <ScalarProperty Name="PDate" ColumnName="PDate" />
+                <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentUniqueeID" ColumnName="StudentUniqueeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeacherEducations">
+            <EntityTypeMapping TypeName="SchoolMDBModel.TeacherEducation">
+              <MappingFragment StoreEntitySet="TeacherEducation">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EducationName" ColumnName="EducationName" />
+                <ScalarProperty Name="Eid" ColumnName="Eid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeacherPictures">
+            <EntityTypeMapping TypeName="SchoolMDBModel.TeacherPicture">
+              <MappingFragment StoreEntitySet="TeacherPicture">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeacherProes">
+            <EntityTypeMapping TypeName="SchoolMDBModel.TeacherPro">
+              <MappingFragment StoreEntitySet="TeacherPro">
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="SysTime" ColumnName="SysTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+                <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+                <ScalarProperty Name="PersentAddress" ColumnName="PersentAddress" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="Tid" ColumnName="Tid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SchoolManagementSoft.Models.DBMODEL.StdTution>
+
+@{
+    ViewBag.Title = "StudenTutuinFee2";
+}
+
+<h2>StudenTutuinFee2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentUniqueeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pmonth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceivedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SysTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentUniqueeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pmonth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceivedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SysTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SlNo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SlNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SlNo })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,93 @@
+﻿@using SchoolManagementSoft.Models
+@model LoginViewModel
+@{
+    Layout = null;
+}
+
+<head>
+    <meta charset="UTF-8">
+    <title>School Management</title>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+    <link href="~/Content/styleLogin.css" rel="stylesheet" />
+</head>
+
+
+<body>
+
+    <!-- partial:index.partial.html -->
+    <div class="container">
+       
+        <div class="screen">
+            <div class="screen__content">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signin", role = "form", id = "formId" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="login">
+                        <h4>LogIn With Us</h4>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="text" id="Email" name="Email" class="login__input" placeholder="User name / Email">
+
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input type="password" id="Password" name="Password" class="login__input" placeholder="Password">
+                        </div>
+                        <button class="button login__submit">
+                            <span class="button__text">Log In Now</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                }
+
+                @*<div class="">
+                    <img src="~/Content/img/stdphoto.jpg" style="height:140px; width:140px; position:center" />
+                </div>*@
+
+
+            </div>
+
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+            <br />
+            <footer class="" style="position:fixed;margin-left:0;text-align:center">
+                <div>
+                    <b style="color: green">© Powered by Projukty24.com | Version : 1.0.0</b>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- partial -->
+    
+    <script>
+        //$('#login').onClick(function () {
+        //    $('#login').hide();
+        //    $('#loader').show();
+        //});
+        $('#loader').hide();
+        $(document).on('click', "#login", function (event) {
+            event.preventDefault();
+            $('#login').hide();
+            $('#loader').show();
+            $("#formId").attr("action", "/Account/Login")
+            $("#formId").submit();
+            //if ($('#BranchCode').val() == '') {
+            //    setError('BranchCode', 'This field is required')
+            //} else {
+            //    $("#report").attr("action", "/ProfitReport/GetMIRunningDue")
+            //    $("#report").submit();
+            //}
+
+        });
+    </script>
+
+</body>
+
+
+

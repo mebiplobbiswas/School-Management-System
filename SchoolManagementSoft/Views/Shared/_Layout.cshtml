@@ -1,0 +1,405 @@
+﻿
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.ico" type="image/ico" />
+
+    <title>School Manangement</title>
+
+
+    <!-- Bootstrap -->
+
+    <link href="~/Theme/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/Theme/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- NProgress -->
+    <link href="~/Theme/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/Theme/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="~/Theme/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="~/Theme/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/Theme/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <link href="~/Theme/select2/css/select2.min.css" rel="stylesheet" />
+    <!-- Custom Theme Style -->
+    <link href="~/Theme/build/css/custom.min.css" rel="stylesheet">
+
+    <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link href="~/Theme/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/Theme/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+
+    <link href="~/Theme/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/Theme/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+
+    <link href="~/Theme/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Theme/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Theme/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Theme/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Theme/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="~/Theme/build/css/custom.min.css" rel="stylesheet">
+
+
+
+    <style>
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .select2-container--classic .select2-selection--single .select2-selection__rendered {
+            line-height: 36px !important;
+        }
+
+        .select2-container--classic .select2-selection--single .select2-selection__arrow {
+            height: 36px !important;
+        }
+
+        .select2-container .select2-selection--single {
+            height: 38px;
+        }
+
+        .select2 {
+            width: 100% !important;
+        }
+
+        img {
+            vertical-align: middle;
+            border-style: none;
+            width: 100%;
+        }
+
+        input {
+            border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+        }
+
+            input:focus {
+                outline: none;
+                border: 1px solid #4195fc;
+                box-shadow: 0px 0px 14px #4195fc;
+                -moz-box-shadow: 0px 0px 14px #4195fc;
+                -webkit-box-shadow: 0px 0px 14px #4195fc;
+            }
+
+        .form-control {
+            border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+        }
+
+            .form-control:focus {
+                outline: none;
+                border: 1px solid #4195fc;
+                box-shadow: 0px 0px 14px #4195fc;
+                -moz-box-shadow: 0px 0px 14px #4195fc;
+                -webkit-box-shadow: 0px 0px 14px #4195fc;
+            }
+
+        input.form-control, input[type=text], input[type=password], input[type=email], input[type=number], [type=text].form-control, [type=password].form-control, [type=email].form-control, [type=tel].form-control, [contenteditable].form-control {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            font-weight: bolder;
+            background-color: #fff;
+            background-image: none;
+            border-radius: 4px;
+            height: 37px;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            border: 1px solid #6891a2;
+            -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px #6891a2;
+            box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px #6891a2;
+        }
+    </style>
+
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+
+
+            @if (User.IsInRole("SuperAdmin"))
+            {
+                <div class="col-md-3 left_col">
+
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" style="border: 0;">
+                            <a href="@Url.Action("Index","Home")" class="site_title"><i class="fa fa-adjust"></i> <span>School Mangement</span></a>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- menu profile quick info -->
+                        @*<div class="profile clearfix">
+                                <div class="profile_pic">
+                                        <img src="~/Theme/production/images/img.jpg" alt="..." class="img-circle profile_img">
+                                    </div>
+                                <div class="profile_info">
+                                    <span>Welcome,</span>
+                                    <h2>Bank Software</h2>
+                                </div>
+                            </div>*@
+                        <!-- /menu profile quick info -->
+
+                        <br />
+
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                @*<h3>General</h3>*@
+                                <ul class="nav side-menu">
+                                    <li>
+                                        <a href="@Url.Action("Index","Home")"><i class="fa fa-home"></i> Dashboard</a>
+                                    </li>
+
+
+
+                                    <li>
+                                        <a><i class="fa fa-user-md"></i> Student Management <span class="fa fa-home"></span></a>
+                                        <ul class="nav child_menu">
+
+                                            <li><a href="@Url.Action("StudentProfile","StudentProfile")"><i class="fa fa-user"></i>Student Registration</a></li>
+                                            <li><a href="@Url.Action("NewClassAdmission","NewClassAdmission")"><i class="fa fa-user"></i>New Class Admission</a></li>
+                                           
+                                            <li><a href="@Url.Action("StudenTutuinFee","StudenTutuinFee")"><i class="fa fa-money"></i> Received Tuition Fee</a></li>
+
+
+                                            @*<li>
+                                                <a><i class="fa fa-user-md"></i>Student Management</a>
+                                                <ul class="nav child_menu">
+                                                    <li class="sub_menu">
+                                                        <a href="@Url.Action("MemberInfo","MemberInfo")"><i class="fa fa-user"></i>Add Student</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="@Url.Action("MemberModify","MemberModify")"><i class="fa fa-user"></i>Member Modify</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="@Url.Action("MemberSearch","MemberInfo")"><i class="fa fa-user"></i>Member Search</a>
+                                                    </li>
+                                                </ul>
+                                            </li>*@                                          
+                                        </ul>
+                                    </li>
+
+
+                                    <li>
+                                        <a><i class="fa fa-universal-access"></i> Teacher Management <span class="fa fa-home"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="@Url.Action("TeacherDetail","TeacherDetail")"><i class="fa fa-list"></i>Add New Tearcher</a></li>
+                                           
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="menu_section">
+                                <h3>Admin Panel</h3>
+                                <ul class="nav side-menu">
+                                    <li>
+                                        <a><i class="fa fa-user"></i> User Add <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="@Url.Action("Create","UsersAdmin")"> User Add</a></li>
+                                            <li><a href="@Url.Action("Index","UsersAdmin")"> User List</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a><i class="fa fa-adjust"></i> Roles Admin<span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="@Url.Action("Create","RolesAdmin")"> Role Add</a></li>
+                                            <li><a href="@Url.Action("Index","RolesAdmin")"> Role List</a></li>
+                                        </ul>
+                                    </li>
+
+                                    @*<li><a href="@Url.Action("ZoneDataList","Products")"><i class="fa fa-edit"></i>Zone Data List</a></li>*@
+
+                                </ul>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            }
+           
+            else
+
+            {
+              
+            }
+
+
+
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    @Html.Partial("_LoginPartial")
+
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <!-- top tiles -->
+                @RenderBody()
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+
+            <footer>
+                <div class="pull-right">
+                    Design & Developed by <a href="#">IT Department</a>
+                </div>
+                <div class="profile clearfix">
+
+                </div>
+            </footer>
+
+            <!-- /footer content -->
+        </div>
+    </div>
+
+    <script src="~/Theme/moment/moment.min.js"></script>
+    <!-- jQuery -->
+    <script src="~/Theme/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Theme/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Theme/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/Theme/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="~/Theme/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="~/Theme/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="~/Theme/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/Theme/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="~/Theme/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="~/Theme/vendors/Flot/jquery.flot.js"></script>
+    <script src="~/Theme/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="~/Theme/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="~/Theme/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="~/Theme/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="~/Theme/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="~/Theme/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="~/Theme/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="~/Theme/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="~/Theme/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="~/Theme/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="~/Theme/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="~/Theme/vendors/moment/min/moment.min.js"></script>
+    <script src="~/Theme/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    @*<script src="~/Theme/build/js/custom.min.js"></script>*@
+    @*<script src="~/Theme/vendors/jquery/dist/jquery.min.js"></script>*@
+    <!-- Bootstrap -->
+    <script src="~/Theme/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Theme/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/Theme/vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="~/Theme/vendors/iCheck/icheck.min.js"></script>
+
+    <script src="~/Theme/select2/js/select2.min.js"></script>
+    <!-- Datatables -->
+    <script src="~/Theme/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Theme/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Theme/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Theme/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/Theme/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/Theme/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Theme/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Theme/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Theme/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/Theme/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Theme/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/Theme/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="~/Theme/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="~/Theme/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/Theme/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+
+    <script src="~/Theme/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+    <script src="~/Theme/build/js/custom.min.js"></script>
+    <script src="~/Theme/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+
+
+    @RenderSection("scripts", required: false)
+
+    <script>
+         $.ajax({
+            type:"Post",
+            url: '@Url.Action("GetUserInfo", "Manage")',
+            contentType: false,
+            processData:false,
+            success: function (datas) {
+                if (datas) {
+                    showData(datas);
+                }
+                else {
+
+                }
+            }
+        });
+
+
+        function showData(datas) {
+            $("#CustomerImage1").attr('src', '/Content/UserImage/'+ datas.filePath);
+
+            //$("#firstName").val(datas.data1.FirstName);
+            //$("#lastName").val(datas.data1.LastName);
+            //$("#phoneNo").val(datas.data.phoneNo);
+            //$("#PresentAddress").val(datas.data.PresentAddress);
+            //if (datas.DoB == "/Date(-62135596800000)/") {
+            //    $("#DoB").val("");
+            //}
+            //else {
+            //    $("#DoB").val(moment(datas.data.DoB).format("YYYY-MM-DD"));
+            //}
+            //$("#PostCode").val(datas.data.PostCode);
+            //$("#NID").val(datas.data.NID).change();
+            //$("#Education").val(datas.data.Education);
+        }
+    </script>
+</body>
+</html>
+

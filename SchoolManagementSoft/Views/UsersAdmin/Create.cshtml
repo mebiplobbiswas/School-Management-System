@@ -1,0 +1,155 @@
+﻿@model SchoolManagementSoft.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Create a new user";
+}
+
+<style>
+    #form_bg {
+        background-color: #535353;
+        color: #fff;
+        padding: 25px;
+        border-radius: 15px;
+    }
+</style>
+
+<div id="form_body">
+    <br />
+    <div id="form_bg" class="card col-sm-8 offset-sm-2">
+        <div style="border:1px solid #e0e0e0;border-radius:15px;">
+            <div class="card-header text-light" style="border-radius:15px;">
+                @ViewBag.Title <a class="pull-right" href="@Url.Action("Index","UsersAdmin")"><i class="fa fa-list-ul"></i> Back To List</a>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Create", "UsersAdmin", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", new { @class = "text-error" })
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.FirstName, new { @class = "" })
+                                <div class="">
+                                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.LastName, new { @class = "" })
+                                <div class="">
+                                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "" })
+                                <div class="">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Password, new { @class = "" })
+                                <div class="">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "" })
+                                <div class="">
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="font-weight-bold">
+                            Select User Role
+                        </label>
+                        <div class="row">
+                            @foreach (var item in (SelectList)ViewBag.RoleId)
+                            {
+
+                                <div class="custom-control custom-checkbox col-sm-5 offset-1">
+                                    <input type="checkbox" name="SelectedRoles" value="@item.Value" class="custom-control-input" id="@item.Value">
+                                    <label class="custom-control-label" for="@item.Value">@item.Value</label>
+                                </div>
+                            }
+                        </div>
+                        <style>
+                            .custom-checkbox:hover {
+                                color: #4cff00;
+                            }
+                        </style>
+                    </div>
+                    <hr />
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BranchCode, "BranchCode", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @*@Html.DropDownList("BranchID", (IEnumerable<SelectListItem>)ViewBag.BranchID, "Select Branch")*@
+                            @Html.DropDownList("BranchCode", (IEnumerable<SelectListItem>)ViewBag.BranchCode, htmlAttributes: new { @class = "form-control js-example-theme-single" })
+                            @Html.ValidationMessageFor(model => model.BranchCode, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ZoneID, "ZoneID", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @*@Html.DropDownList("BranchID", (IEnumerable<SelectListItem>)ViewBag.BranchID, "Select Branch")*@
+                            @Html.DropDownList("ZoneID", (IEnumerable<SelectListItem>)ViewBag.ZoneID, htmlAttributes: new { @class = "form-control js-example-theme-single" })
+                            @Html.ValidationMessageFor(model => model.ZoneID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <div class="">
+                            <input type="submit" class="btn btn-dark" value="Save" />
+                            <a class="btn btn-danger" href="@Url.Action("Index","UsersAdmin")"> Cancel</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+
+
+
+
+
+
+
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+        $('.select2').select2();
+        $(".js-example-theme-single").select2({
+            theme: "classic"
+        });
+
+
+    </script>
+}

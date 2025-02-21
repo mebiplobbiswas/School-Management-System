@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SchoolMDBModelStoreContainer" CdmEntityContainer="SchoolMDBEntities">
+    <EntitySetMapping Name="StdClasses">
+      <EntityTypeMapping TypeName="SchoolMDBModel.StdClass">
+        <MappingFragment StoreEntitySet="StdClass">
+          <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StdSections">
+      <EntityTypeMapping TypeName="SchoolMDBModel.StdSection">
+        <MappingFragment StoreEntitySet="StdSection">
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StdPictures">
+      <EntityTypeMapping TypeName="SchoolMDBModel.StdPicture">
+        <MappingFragment StoreEntitySet="StdPicture">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="StudentUniqueeID" ColumnName="StudentUniqueeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StdGroups">
+      <EntityTypeMapping TypeName="SchoolMDBModel.StdGroup">
+        <MappingFragment StoreEntitySet="StdGroup">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Gid" ColumnName="Gid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StdProfiles">
+      <EntityTypeMapping TypeName="SchoolMDBModel.StdProfile">
+        <MappingFragment StoreEntitySet="StdProfile">
+          <ScalarProperty Name="MotherNID" ColumnName="MotherNID" />
+          <ScalarProperty Name="FatherNID" ColumnName="FatherNID" />
+          <ScalarProperty Name="MotherOccupation" ColumnName="MotherOccupation" />
+          <ScalarProperty Name="FatherOccupation" ColumnName="FatherOccupation" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="BDate" ColumnName="BDate" />
+          <ScalarProperty Name="StdSectionName" ColumnName="StdSectionName" />
+          <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+          <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+          <ScalarProperty Name="Updatedate" ColumnName="Updatedate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="SysDate" ColumnName="SysDate" />
+          <ScalarProperty Name="AdmissionDate" ColumnName="AdmissionDate" />
+          <ScalarProperty Name="MeritNumber" ColumnName="MeritNumber" />
+          <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="ClassRoll" ColumnName="ClassRoll" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="EmergencyContact" ColumnName="EmergencyContact" />
+          <ScalarProperty Name="ContachNumber" ColumnName="ContachNumber" />
+          <ScalarProperty Name="MName" ColumnName="MName" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="StudentUniqueeID" ColumnName="StudentUniqueeID" />
+          <ScalarProperty Name="StdID" ColumnName="StdID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustPictures">
+      <EntityTypeMapping TypeName="SchoolMDBModel.CustPicture">
+        <MappingFragment StoreEntitySet="CustPicture">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="StudentUniqueeID" ColumnName="StudentUniqueeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StdAdmissions">
+      <EntityTypeMapping TypeName="SchoolMDBModel.StdAdmission">
+        <MappingFragment StoreEntitySet="StdAdmission">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="SysDate" ColumnName="SysDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="MFee" ColumnName="MFee" />
+          <ScalarProperty Name="AFee" ColumnName="AFee" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="StdSectionName" ColumnName="StdSectionName" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="StudentUniqueeID" ColumnName="StudentUniqueeID" />
+          <ScalarProperty Name="ADate" ColumnName="ADate" />
+          <ScalarProperty Name="Aid" ColumnName="Aid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StdTutions">
+      <EntityTypeMapping TypeName="SchoolMDBModel.StdTution">
+        <MappingFragment StoreEntitySet="StdTution">
+          <ScalarProperty Name="FType" ColumnName="FType" />
+          <ScalarProperty Name="SysTime" ColumnName="SysTime" />
+          <ScalarProperty Name="ReceivedBy" ColumnName="ReceivedBy" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Pmonth" ColumnName="Pmonth" />
+          <ScalarProperty Name="PDate" ColumnName="PDate" />
+          <ScalarProperty Name="StudentUniqueeID" ColumnName="StudentUniqueeID" />
+          <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StdTTypes">
+      <EntityTypeMapping TypeName="SchoolMDBModel.StdTType">
+        <MappingFragment StoreEntitySet="StdTType">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FType" ColumnName="FType" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VTutuionCollectionLists">
+      <EntityTypeMapping TypeName="SchoolMDBModel.VTutuionCollectionList">
+        <MappingFragment StoreEntitySet="VTutuionCollectionList">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="FType" ColumnName="FType" />
+          <ScalarProperty Name="ReceivedBy" ColumnName="ReceivedBy" />
+          <ScalarProperty Name="PDate" ColumnName="PDate" />
+          <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="StudentUniqueeID" ColumnName="StudentUniqueeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherEducations">
+      <EntityTypeMapping TypeName="SchoolMDBModel.TeacherEducation">
+        <MappingFragment StoreEntitySet="TeacherEducation">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EducationName" ColumnName="EducationName" />
+          <ScalarProperty Name="Eid" ColumnName="Eid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherPictures">
+      <EntityTypeMapping TypeName="SchoolMDBModel.TeacherPicture">
+        <MappingFragment StoreEntitySet="TeacherPicture">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherProes">
+      <EntityTypeMapping TypeName="SchoolMDBModel.TeacherPro">
+        <MappingFragment StoreEntitySet="TeacherPro">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="SysTime" ColumnName="SysTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+          <ScalarProperty Name="PersentAddress" ColumnName="PersentAddress" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+          <ScalarProperty Name="Tid" ColumnName="Tid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

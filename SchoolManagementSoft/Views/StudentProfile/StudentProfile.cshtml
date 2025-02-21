@@ -1,0 +1,464 @@
+﻿@model SchoolManagementSoft.Models.DBMODEL.StdProfile
+<head>
+    <style>
+        label {
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            padding-top: 10px;
+        }
+
+        .form-control-feedback.right {
+            border-left: 1px solid #603333;
+            right: 13px;            
+            background-color: green;
+        }
+    </style>
+</head>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Add New Student Registration</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <div class="row">
+
+
+                    <div class="col-md-6">
+                        <label><b>Student UniqueID</b></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="StudentUniqueeID" list="datalist" autocomplete="off" />
+                            <button class="fa fa-search form-control-feedback right input-group-bth " id="searchbyCustID"></button>
+
+                            <datalist id="datalist" style="overflow-y:scroll;height:8px"></datalist>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Admission Date</b></label>
+                        <input class="date-picker form-control" placeholder="dd-mm-yyyy" id="AdmissionDate" type="text" required="required" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                        <span class="field-validation-valid" data-valmsg-for="AdmissionDate" data-valmsg-replace="true" style="color: red"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Date of Birth</b></label>
+                        <input class="date-picker form-control" placeholder="dd-mm-yyyy" id="BDate" type="text" required="required" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                        <span class="field-validation-valid" data-valmsg-for="BDate" data-valmsg-replace="true" style="color: red"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Student Name</b></label>
+                        <input type="text" class="form-control has-feedback-left" id="StudentName">
+                        <span class="field-validation-valid" data-valmsg-for="StudentName" data-valmsg-replace="true" style="color: red"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Father's Name</b></label>
+                        <input type="text" class="form-control has-feedback-left" id="FName">
+                        <span class="field-validation-valid" data-valmsg-for="FName" data-valmsg-replace="true" style="color: red"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label><b>Select Campus</b></label>
+                        @Html.DropDownList("BranchCode", (IEnumerable<SelectListItem>)ViewBag.BranchCode, htmlAttributes: new { @class = "form-control js-example-theme-single" })
+                        <span class="field-validation-valid" data-valmsg-for="BranchCode" data-valmsg-replace="true" style="color: red"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Father's' Occupation</b></label>
+                        @Html.DropDownList("FatherOccupation", (IEnumerable<SelectListItem>)ViewBag.FatherOcc, htmlAttributes: new { @class = "form-control js-example-theme-single" })
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <label><b>Select Section</b></label>
+                        @Html.DropDownList("StdSectionName", (IEnumerable<SelectListItem>)ViewBag.sectionID, htmlAttributes: new { @class = "form-control js-example-theme-single" })
+                        <span class="field-validation-valid" data-valmsg-for="StdSectionName" data-valmsg-replace="true" style="color: red"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Mother's Name</b></label>
+                        <input type="text" class="form-control has-feedback-left" id="MName">
+                    </div>
+                    <div class="col-md-6">
+                        <label><b>Mother's' Occupation</b></label>
+                        @Html.DropDownList("MotherOccupation", (IEnumerable<SelectListItem>)ViewBag.MotherOcc, htmlAttributes: new { @class = "form-control js-example-theme-single" })
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Select Group</b></label>
+                        @Html.DropDownList("GroupName", (IEnumerable<SelectListItem>)ViewBag.GroupId, htmlAttributes: new { @class = "form-control js-example-theme-single" })
+                        <span class="field-validation-valid" data-valmsg-for="GroupName" data-valmsg-replace="true" style="color: red"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Select Class</b></label>
+                        @Html.DropDownList("ClassName", (IEnumerable<SelectListItem>)ViewBag.ClName, htmlAttributes: new { @class = "form-control js-example-theme-single" })
+                        <span class="field-validation-valid" data-valmsg-for="ClassName" data-valmsg-replace="true" style="color: red"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Father's NID</b></label>
+                        <input type="number" class="form-control has-feedback-left" id="FatherNID">
+                    </div>
+                    <div class="col-md-6">
+                        <label><b>Tuition Fees</b></label>
+                        <input type="number" class="form-control has-feedback-left" id="Fee">
+                        <span class="field-validation-valid" data-valmsg-for="Fee" data-valmsg-replace="true" style="color: red"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Mother's NID</b></label>
+                        <input type="number" class="form-control has-feedback-left" id="MotherNID">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Contach Number</b></label>
+                        <input type="number" class="form-control has-feedback-left" id="ContachNumber">
+                        <span class="field-validation-valid" data-valmsg-for="ContachNumber" data-valmsg-replace="true" style="color: red"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Emergency Contact</b></label>
+                        <input type="number" class="form-control has-feedback-left" id="EmergencyContact">
+                    </div>
+                    <div class="col-md-6">
+                        <label><b>Merit Number</b></label>
+                        <input type="text" class="form-control has-feedback-left" id="MeritNumber">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Class Roll</b></label>
+                        <input type="text" class="form-control has-feedback-left" id="ClassRoll">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Reference Name</b></label>
+                        <input type="text" class="form-control has-feedback-left" id="ReferenceName">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>School Name</b></label>
+                        <input type="text" class="form-control has-feedback-left" id="SchoolName">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label><b>Address</b></label>
+                        <textarea type="text" class="form-control has-feedback-left" id="Address"></textarea>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <br />
+            <button type="button" class="btn btn-success" id="Save"> Submit </button>
+            <button type="button" class="btn btn-primary" id="Edit">Update</button>
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="">
+            <div class="col-md-12">
+                @*<div style="text-align:center" id="uploadImage">
+                        <img id="sample_img" align='middle' src="~/Content/img/EmpImage.png" alt="your image" title='' width="400" />
+                    </div>*@
+                <div style="text-align:center" id="uploadImage">
+                    <img id="sample_img" align='middle' src="~/Content/img/stdphoto.jpg" alt="your image" title='' width="300" />
+                </div>
+            </div>
+            <div class="input-group mb-12">
+                <div class="custom-file">
+                    <input type="file" class="form-control" name="img" style="color:white" accept="image/*" id="img" onchange="ValidateSingleInput(this);">
+                    <label class="custom-file-label" for="img"></label>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div style="text-align:center">
+                    <p class=" center bold" id="photo"><i class="fa fa-warning" style="padding-top:2px;"></i> <span id="size">Maximum Image Size is 512 KB</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</div>
+
+
+
+
+@section Scripts{
+   
+    <script src="~/Scripts/Common.js"></script>
+    <script src="~/assets/js/form-wizard/form-wizard-two.js"></script>
+    <script>
+        function timeFunctionLong(input) {
+            setTimeout(function () {
+                input.type = 'text';
+            }, 60000);
+        }
+
+        $('.select2').select2();
+        $(".js-example-theme-single").select2({
+            theme: "classic"
+        });
+
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#sample_img').attr('src', e.target.result);
+
+                    $('#sample_img').hide();
+                    $('#sample_img').fadeIn(650);
+
+                    $("#img_changed").val("1");
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $('#img').attr('accept', '.jpg, .jpeg, .png');
+        $("#img").on("change", function (e) {
+            //var uploadField = document.getElementById("file");
+
+            // uploadField.onchange = function () {
+            if (this.files[0].size > 512000) {
+                alert("File is too big! File must be in 512kb");
+                this.value = "";
+            };
+            //};
+        });
+
+
+
+        var _validFileExtensions = [".jpg", ".jpeg", ".png"];
+        function ValidateSingleInput(oInput) {
+            if (oInput.type == "file") {
+                var sFileName = oInput.value;
+                if (sFileName.length > 0) {
+                    var blnValid = false;
+                    for (var j = 0; j < _validFileExtensions.length; j++) {
+                        var sCurExtension = _validFileExtensions[j];
+                        if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                            blnValid = true;
+                            break;
+                        }
+                    }
+
+                    if (!blnValid) {
+                        alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                        oInput.value = "";
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        $("#img").change(function () {
+            readURL(this);
+        });
+
+      // Save
+        var isValidOnSave = true;
+        $(document).on('click', '#Save', function () {
+
+            isValidOnSave = true;
+            RemoveError();
+
+            setMemberInfoData();
+            ValidateInformation();
+            if (isValidOnSave == true) {
+                $("#save").prop('disabled', true);
+                //addGuarantor();
+
+                var associationSupport = {
+                    stdProfile: MemberInfo
+                };
+                var formData = new FormData();
+                var file = $("#img").get(0).files;
+                if (file.length > 0) {
+                    formData.append("file", file[0]);
+                }
+                formData.append("json", JSON.stringify(associationSupport));
+
+                if (confirm('Do you want to save?')) {
+
+                    $.ajax({
+                        type:"Post",
+                        url: '@Url.Action("Save", "StudentProfile")',
+                        data: formData,
+                        contentType: false,
+                        processData:false,
+                        success: function (datas) {
+                            if (datas != 0) {
+                                $("#StudentUniqueeID").val(datas);
+                                $("#Save").hide();
+                                $("#Edit").show();
+                                $("#Delete").show();
+                                $("#Reg").show();
+                            }
+                            else {
+                                alert("Check your internet or Please contact with IT Team.");
+                                //$("#save").prop('disabled', false);
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
+
+        var MemberInfo = {
+            StudentUniqueeID: '', StudentName: '', ClassName: '', FName: '', MName: '', ContachNumber: '', EmergencyContact: '', Address: '', SchoolName: '', ClassRoll: '',
+            Fee: '', ReferenceName: '', MeritNumber: '', AdmissionDate: '', SlNo: '', BDate: '', StdSectionName: '', GroupName: '', FatherOccupation: '', MotherOccupation: '',
+            FatherNID: '', MotherNID: '', BranchCode: ''
+        }
+
+        function setMemberInfoData() {
+            //MemberInfo.SlNo = $("#SlNo").val();
+            MemberInfo.StudentUniqueeID = $("#StudentUniqueeID").val();
+            MemberInfo.StudentName = $("#StudentName").val();
+            MemberInfo.ClassName = $("#ClassName").val();
+            MemberInfo.FName = $("#FName").val();
+            MemberInfo.MName = $("#MName").val();
+            MemberInfo.ContachNumber = $("#ContachNumber").val();
+            MemberInfo.EmergencyContact = $("#EmergencyContact").val();
+            MemberInfo.Address = $("#Address").val();
+            MemberInfo.SchoolName = $("#SchoolName").val();
+            MemberInfo.ClassRoll = $("#ClassRoll").val();
+            MemberInfo.Fee = $("#Fee").val();
+            MemberInfo.ReferenceName = $("#ReferenceName").val();
+            MemberInfo.MeritNumber = $("#MeritNumber").val();
+            MemberInfo.AdmissionDate = $("#AdmissionDate").val();
+            MemberInfo.SlNo = $("#SlNo").val();
+            MemberInfo.GroupName = $("#GroupName").val();
+            MemberInfo.BDate = $("#BDate").val();
+            MemberInfo.StdSectionName = $("#StdSectionName").val();
+            MemberInfo.FatherOccupation = $("#FatherOccupation").val();
+            MemberInfo.MotherOccupation = $("#MotherOccupation").val();
+            MemberInfo.FatherNID = $("#FatherNID").val();
+            MemberInfo.MotherNID = $("#MotherNID").val();
+            MemberInfo.BranchCode = $("#BranchCode").val();
+        }
+
+         $(document).on('click', "#searchbyCustID", function () {
+             var id = { id: $("#StudentUniqueeID").val() };
+            if (id != "") {
+                $.ajax({
+                    url: '@Url.Action("GetMemberInfo", "StudentProfile")',
+                    contentType: "application/json;charset=utf-8",
+                    data: id,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (datas) {
+                        if (datas == 0) {
+
+                        } else {
+                            detailUrl = '/StudentProfile/GetImage?custid=' + id.id + '';
+                            $("#sample_img").attr('src', detailUrl);
+                            /*showData(datas);*/
+                            $('#StudentUniqueeID').attr('disabled', true);
+                            $("#StudentName").val(datas.StudentName);
+                            $("#ClassName").val(datas.ClassName);
+                            $("#FName").val(datas.FName);
+                            $("#MName").val(datas.MName);
+                            $("#ContachNumber").val(datas.ContachNumber);
+                            $("#EmergencyContact").val(datas.EmergencyContact);
+                            $("#Address").val(datas.Address);
+                            $("#SchoolName").val(datas.SchoolName);
+                            $("#ClassRoll").val(datas.ClassRoll);
+                            $("#Fee").val(datas.Fee);
+                            $("#ReferenceName").val(datas.ReferenceName);
+                            $("#MeritNumber").val(datas.MeritNumber);                            
+                            if (datas.AdmissionDate == "/Date(-62135596800000)/") {
+                                $("#AdmissionDate").val("");
+                            }
+                            else {
+                                $("#AdmissionDate").val(moment(datas.AdmissionDate).format("DD-MMM-YYYY"));
+                            }
+
+                            
+                            $("#PermanentAddress").val(datas.PermanentAddress);
+                            if (datas.BDate == "/Date(-62135596800000)/") {
+                                $("#BDate").val("");
+                            }
+                            else {
+                                $("#BDate").val(moment(datas.BDate).format("DD-MMM-YYYY"));
+                            }
+                            $("#FName").val(datas.FName);
+                            $("#FName1").val(datas.FName1);
+                            $("#MName").val(datas.MName);
+                            $("#MName1").val(datas.MName1);
+                            $("#CityDistrict").val(datas.CityDistrict);
+                            $("#CityDistrict1").val(datas.CityDistrict1);
+                            $("#PS").val(datas.PS);
+                            $("#PS1").val(datas.PS1);
+                            $("#PostCode").val(datas.PostCode);
+                            $("#PostCode1").val(datas.PostCode1);
+                            $("#Country").val(datas.Country);
+                            $("#Country1").val(datas.Country1);
+                            $("#NID").val(datas.NID);
+                            $("#NID1").val(datas.NID1);
+                            $("#Occupation").val(datas.Occupation).change();
+                            $("#Occupation1").val(datas.Occupation1).change();
+                            $("#RefAccNo").val(datas.RefAccNo);
+                            $("#RefName").val(datas.RefName);
+                            $("#OnlineTransaction").val(datas.OnlineTransaction).change();
+                            $("#Save").hide();
+                            $("#Edit").show();
+                            $("#Delete").show();
+                            $("#Reg").show();
+                        }
+                    }
+                });
+            }
+         });
+
+        function ValidateInformation() {
+            isValidOnSave = true;
+            if (MemberInfo.StudentName == "") {
+                setError("StudentName", "This field is required");
+                isValidOnSave = false;
+            } if (MemberInfo.ClassName == "") {
+                setError("ClassName", "This field is required");
+                isValidOnSave = false;
+            }
+            if (MemberInfo.ContachNumber == "") {
+                setError("ContachNumber", "This field is requiredd");
+                isValidOnSave = false;
+            } if (MemberInfo.Fee == "") {
+                setError("Fee", "This field is required");
+                isValidOnSave = false;
+            } if (MemberInfo.FName == "") {
+                setError("FName", "This field is required");
+                isValidOnSave = false;
+            } if (MemberInfo.BDate == "") {
+                setError("BDate", "This field is required");
+                isValidOnSave = false;
+            } if (MemberInfo.AdmissionDate == "") {
+                setError("AdmissionDate", "This field is required");
+                isValidOnSave = false;
+            } if (MemberInfo.StdSectionName == "") {
+                setError("StdSectionName", "This field is required");
+                isValidOnSave = false;
+            } if (MemberInfo.BranchCode == "") {
+                setError("BranchCode", "This field is required");
+                isValidOnSave = false;
+            } if (MemberInfo.GroupName == "") {
+                setError("GroupName", "This field is required");
+                isValidOnSave = false;
+            }
+        }
+        //end
+    </script>
+}

@@ -1,0 +1,105 @@
+﻿@model SchoolManagementSoft.Models.RoleViewModel
+
+@{
+    ViewBag.Title = "Add New Role";
+}
+
+<style>
+    #form_bg {
+        /*background-color: #535353;*/
+        background-color: #2A3F54;
+        color: #fff;
+        padding: 25px;
+        border-radius: 15px;
+    }
+</style>
+
+<div id="form_body">
+
+    <div id="form_bg" class="card col-sm-8 offset-sm-2">
+
+        <div style="border:1px solid #e0e0e0;border-radius:15px;">
+
+            <div class="card-header text-light" style="border-radius:15px; font-size:20px;">
+                @ViewBag.Title <a class="pull-right" href="@Url.Action("Index","RolesAdmin")" style="color:white;"><i class="fa fa-list-ul"></i> Back To List</a>
+            </div>
+
+
+            <div class="card-body">
+                @using (Html.BeginForm())
+                {
+
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Name, new { @class = "" })
+                                <div class="">
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Description, new { @class = "" })
+                                <div class="">
+                                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <hr />
+                    <div class="form-group">
+                        <div class="">
+                            <input type="submit" class="btn btn-dark" value="Save" />
+                            <a class="btn btn-danger" href="@Url.Action("Index","RolesAdmin")"> Cancel</a>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+@*@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}*@

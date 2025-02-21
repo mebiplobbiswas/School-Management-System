@@ -1,0 +1,515 @@
+﻿@model SchoolManagementSoft.Models.DBMODEL.StdProfile
+
+@{
+    ViewBag.Title = "Adminission From";
+}
+
+<head>
+    <link href="~/Content/jquery-confirm.min.css" rel="stylesheet" />
+
+    <style>
+        label {
+            font-size: 13px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+            .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+    </style>
+</head>
+
+<div class="container body">
+    <div class="main_container">
+
+        <div role="main">
+            <div class="">
+
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-1">
+                        <div class="card">
+
+                            <div class="card-header" style="background-color:#2A3F54">
+                                <h3 style="text-align:center; color:#ffffff; font-size:15px; font-family:'Times New Roman' "><b>STUDENT NEW CLASS ADMISSION</b></h3>
+                                <div class="clearfix"></div>
+                            </div>
+
+
+
+                            <div class="card-body">
+                                <br />
+                                <div style="font-family:'Times New Roman'; font-size:15px; color:black;">
+
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-4 col-sm-4 label-align" for="DateofBirth">
+                                            ADMISSION DATE
+                                        </label>
+                                        <div class="col-md-4 col-sm-4 ">
+                                            <input type="date" class="form-control date" value="@DateTime.Now.ToString("dd-MMM-yyyy")" id="ADate">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-4 col-sm-4 label-align" for="Class Name">
+                                            STUDENTID <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-4 ">
+                                            @Html.DropDownListFor(model => model.StudentUniqueeID, (IEnumerable<SelectListItem>)ViewBag.StdID, new { @class = "form-control js-example-theme-single" })
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-4 col-sm-4 label-align" for="Class Name">
+                                            CLASS NAME <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-4 ">
+                                            @Html.DropDownListFor(model => model.ClassName, (IEnumerable<SelectListItem>)ViewBag.ClName, new { @class = "form-control js-example-theme-single" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-4 col-sm-4 label-align" for="Class Name">
+                                            SECTION NAME <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-4 ">
+                                            @Html.DropDownListFor(model => model.StdSectionName, (IEnumerable<SelectListItem>)ViewBag.sectionID, new { @class = "form-control js-example-theme-single" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-4 col-sm-4 label-align" for="Class Name">
+                                            GROUP NAME<span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-4 col-sm-4 ">
+                                            @Html.DropDownListFor(model => model.GroupName, (IEnumerable<SelectListItem>)ViewBag.GroupId, new { @class = "form-control js-example-theme-single" })
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-4 col-sm-4 label-align" for="AFee">
+                                            ADMISSION FEE
+                                        </label>
+                                        <div class="col-md-4 col-sm-4 ">
+                                            <input id="AFee" class="form-control" type="text" name="AFee" value="0">
+                                        </div>
+                                    </div>
+
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-4 col-sm-4 label-align" for="MFee">
+                                            MONTHLY FEE
+                                        </label>
+                                        <div class="col-md-4 col-sm-4 ">
+                                            <input id="MFee" class="form-control" type="text" name="MFee" value="0">
+                                        </div>
+                                    </div>
+
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-4 col-sm-4 label-align" for="Note">
+                                            NOTES
+                                        </label>
+                                        <div class="col-md-4 col-sm-4 ">
+                                            <input id="Note" class="form-control" type="text" name="Note">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="ln_solid"></div>
+                                    <div class="item form-group">
+                                        <div class="col-md-6 col-sm-6 offset-md-4">
+                                            <button type="button" class="btn btn-success" id="btnAdd" onclick="return Add();"> Submit </button>
+                                            <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none" onclick="Update();">Update</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="container">
+
+    @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajaxModal" onclick="clearInput();">Add Zone</button>*@
+    <table class="table table-striped table-bordered" style="width:100%" id="tbl">
+        <thead>
+            <tr>
+                <th>SL</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Nationality</th>
+                <th>Religion</th>
+                <th>Address</th>
+                <th>DateofBirth</th>
+                <th>Gender</th>
+                <th>BloodGroup</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody class="tbody"></tbody>
+    </table>
+</div>
+
+
+
+
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")   
+    <script src="~/Scripts/jquery-confirm.min.js"></script>
+    <script src="~/Scripts/Common.js"></script>
+    <script src="~/assets/js/form-wizard/form-wizard-two.js"></script>
+    <script>
+
+        Date.prototype.toDateInputValue = (function () {
+            var local = new Date(this);
+            local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+            return local.toJSON().slice(0, 10);
+        });
+
+        $(document).ready(function () {
+            $('#ADate').val(new Date().toDateInputValue());
+        });
+
+
+        $('.select2').select2();
+        $(".js-example-theme-single").select2({
+            theme: "classic"
+        });
+
+
+        var AreaList = [];
+
+
+        var tbl = $('#tbl').DataTable({
+
+        });
+
+        function loadData() {
+            AreaList = [];
+            $.ajax({
+                url: "/Adminission/List",
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = '';
+                    $.each(result, function (key, item) {
+                        var singleRowArea = { AID: 0, Name: '', ClassID: 0, Nationality: '', Religion: '', Address: '', DateofBirth: '', Gender: '', BloodGroup: '' }
+                        singleRowArea.AID = item.AID;
+                        singleRowArea.Name = item.Name;
+                        singleRowArea.ClassID = item.ClassID;
+                        singleRowArea.Nationality = item.Nationality;
+                        singleRowArea.Religion = item.Religion;
+                        singleRowArea.Address = item.Address;
+                        singleRowArea.DateofBirth = item.DateofBirth;
+                        singleRowArea.Gender = item.Gender;
+                        singleRowArea.BloodGroup = item.BloodGroup;
+                        AreaList.push(singleRowArea);
+                    });
+                    showOnGrid();
+                    //$('.tbody').html(html);
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        }
+
+        function showOnGrid() {
+            tbl.clear().draw();
+            var id = 1;
+            $.each(AreaList, function (index, value) {
+                tbl.row.add([id, value.Name, value.ClassID, value.Nationality, value.Religion, value.Address, value.DateofBirth, value.Gender, value.BloodGroup, '<td><a href="#" onclick="return GetbyID(' + value.AID + ')">Edit</a> | <a href="#" onclick="Delete(' + value.AID + ')">Delete</a></td>']).draw();
+                id++;
+            });
+        }
+
+
+
+
+
+
+
+
+//save
+        function Add() {     
+            RemoveError();
+            ValidateInformation();
+            if (isValidOnSave) {
+                $.confirm({
+                    title: 'Alert',
+                    content: 'Do you want to Save?',
+                    buttons: {
+                        specialKey: {
+                            text: 'Ok',
+                            keys: ['enter'],
+                            action: function () {
+                                //SetSecurityDepositData();                               
+                                var zoneobj = {
+                                    ADate: $('#ADate').val(),
+                                    StudentUniqueeID: $('#StudentUniqueeID').val(),
+                                    ClassName: $('#ClassName').val(),
+                                    StdSectionName: $('#StdSectionName').val(),
+                                    GroupName: $('#GroupName').val(),
+                                    AFee: $('#AFee').val(),
+                                    MFee: $('#MFee').val(),
+                                    Note: $('#Note').val(),
+                                };
+                                $.ajax({
+                                    url: "/NewClassAdmission/Add",
+                                    data: JSON.stringify(zoneobj),
+                                    type: "POST",
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: "json",
+                                    success: function (result) {
+                                        if (result == 1) {
+                                            alert("All Ready this student Admitted !");
+                                        }
+                                        else {
+                                            $.confirm({
+                                                title: 'Successfully Saved',
+                                                content: '',
+                                                buttons: {
+                                                    specialKey: {
+                                                        text: 'Ok',
+                                                        keys: ['enter'],
+                                                        action: function () {
+                                                            clearInput();
+                                                            loadData();
+                                                            //  $("#CustAccNo").focus();
+                                                            //EnterPress();
+                                                        }
+                                                    },
+
+                                                }
+                                            });
+                                        }
+                                        //location.reload();
+                                    },
+                                    error: function (errormessage) {
+                                        $.confirm({
+                                            title: 'Error',
+                                            content: 'Please contact with IT Department',
+                                            buttons: {
+                                                specialKey: {
+                                                    text: 'Ok',
+                                                    keys: ['enter'],
+                                                    action: function () {
+                                                      //  $("#CustAccNo").focus();
+                                                    }
+                                                },
+
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        },
+                        alphabet: {
+                            text: 'Cancel',
+                            keys: ['Esc'],
+                            action: function () {
+
+                            }
+                        }
+                    }
+                });
+            }
+        }
+//
+
+
+        //Function for getting the Data Based upon Product ID
+        function GetbyID(AID) {
+
+            $.ajax({
+                url: "/Adminission/GetbyID/" + AID,
+                typr: "GET",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    $('#AID').val(result.AID);
+                    $('#Name').val(result.Name);
+                    $('#ClassID').val(result.ClassID).change();
+                    $('#Nationality').val(result.Nationality);
+                    $('#Religion').val(result.Religion);
+                    $('#Address').val(result.Address);
+                    $('#DateofBirth').val(result.DateofBirth);
+                    $('#Gender').val(result.Gender);
+                    $('#BloodGroup').val(result.BloodGroup);
+
+
+                    $('#ajaxModal').modal('show');
+                    $('#btnUpdate').show();
+                    $('#btnAdd').hide();
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+            return false;
+        }
+
+        //function for updating product record
+        function Update() {
+
+            var zoneobj = {
+                AID: $('#AID').val(),
+                Name: $('#Name').val(),
+                ClassID: $('#ClassID').val(),
+                Nationality: $('#Nationality').val(),
+                Religion: $('#Religion').val(),
+                Address: $('#Address').val(),
+                DateofBirth: $('#DateofBirth').val(),
+                Gender: $('#Gender').val(),
+                BloodGroup: $('#BloodGroup').val()
+
+            };
+            $.ajax({
+                url: "/Adminission/Update",
+                data: JSON.stringify(zoneobj),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    loadData();
+                    $('#ajaxModal').modal('hide');
+                    $('#Name').val(""),
+                        $('#AID').val(""),
+                        $('#ClassID').val(""),
+                        $('#Nationality').val(""),
+                        $('#Religion').val(""),
+                        $('#Address').val(""),
+                        $('#DateofBirth').val(""),
+                        $('#Gender').val(""),
+                        $('#BloodGroup').val("")
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        }
+
+
+
+        function Delete(AID) {
+            var ans = confirm('Are you sure? you want to delete this Record?');
+
+            if (ans) {
+                $.ajax({
+                    url: "/Adminission/Delete/" + AID,
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        loadData();
+                    },
+                    error: function (errormessage) {
+                        alert(errormessage.responseText);
+                    }
+                });
+            }
+        }
+
+
+
+        function clearInput() {
+            location.reload();
+        }
+
+        var isValidOnSave = true;
+        function ValidateInformation() {           
+            isValidOnSave = true;
+             if ($('#Cr').val() == "") {
+                setError("Cr", "This field is required");
+                isValidOnSave = false;
+            }
+            //if (MemberInfo.AreaCode == "") {
+            //    setError("AreaCode", "Area Code is required field");
+            //    isValidOnSave = false;
+            //}
+        }
+
+        $(document).ready(function () {
+            loadData();
+        });
+
+
+
+    </script>
+}
